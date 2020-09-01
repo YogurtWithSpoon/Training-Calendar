@@ -1,23 +1,35 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import {getCurrentMonth,getLastDay,convertDate} from './datefunction/index'
 import './App.css';
-import {readClients,readTrains,writeClient,writeTrain,deleteTrain,deleteClient} from './api/index'
+import AppHeader from './components/appheader'
+import TimeTable from './components/timetable'
+import {readClients, readTrains} from './api/index'
+
 
 function App() {
-  //read data about clients
-    // readClients().then(data => {console.log(data)})
-  //read data about trains in monts_year sent in argument
-    // readTrains("09_2020").then(data => {console.log(data)})
-  // write new user to base arguments "id and name"
-    // writeClient("10","Petr")
-  // delete Client only clientId
-    // deleteClient(10)
-  // write new train to base
-    // writeTrain("09_2020","10","15:30","box","2");
-  // delete train (date,day,time)
-    // deleteTrain("09_2020","10","15:30")
+
+  const [date, setDate] = useState(getCurrentMonth());
+  const [clients, setClients] = useState([])
+  const [loading, setLoading] = useState(false);
+  const [trains, setTrains] = useState([])
+
+
+
+  useEffect(() => {
+    readClients().then(data => {
+      setClients(data)
+    })
+    readTrains(convertDate(date)).then(data => {
+      setTrains(data)
+    })
+    Promise.all([readClients,readTrains]).then(setLoading(true));
+  },[date])
+    
   return (
     <div className="App">
-      <div>Hello</div>
+      <AppHeader currentMonth={date} dateHandler={setDate}/>
+      {loading ? <TimeTable range={[1,17]} trains={trains} date={date} loadTrains={setTrains} loadclient={setClients} clients={clients}/> : "Loading"}
+      {loading ? <TimeTable range={[18,getLastDay(date)]} date={date} trains={trains} loadTrains={setTrains}  loadclient={setClients} clients={clients}/> : "Loading"}
     </div>
   );
 }

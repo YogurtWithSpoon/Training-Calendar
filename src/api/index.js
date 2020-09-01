@@ -13,14 +13,14 @@ export async function writeClient(id,name){
 }
 
 export async function writeTrain(date,day,time,type,clientid){
-  return database.ref(`/trains/${date}/${day}/${time}`).update({
-    "clientid": clientid,
+  return database.ref(`/trains/${date}/${day}/${clientid}`).update({
+    "time": time,
     "type": type
   });
 }
 
-export async function deleteTrain(date,day,time){
-  return database.ref(`/trains/${date}/${day}/${time}`).remove();
+export async function deleteTrain(date,day, clientid){
+  return database.ref(`/trains/${date}/${day}/${clientid}`).remove();
 }
 
 export async function deleteClient(id){
