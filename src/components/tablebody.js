@@ -4,7 +4,7 @@ import { writeClient, readClients, deleteClient } from "../api/index";
 const TableBody = (props) => {
   const [name, setName] = useState("");
   const [isNewClient, setNewClient] = useState(false);
-  const [deleteClient, setDelete] = useState(false);
+  const [delClient, setDelete] = useState(false);
 
 
   const daysGenerator = (id, trains, range) => {
@@ -35,9 +35,11 @@ const TableBody = (props) => {
         <tr key={client}>
           <td className="client" data-id={client}>
             <div className="client_container">
-              <span onDoubleClick={() => setDelete(true)}>{clients[client]}</span>
-              {deleteClient && <button
-                className="delete"
+              <span onDoubleClick={() => 
+                setDelete(!delClient)}
+              >{clients[client]}</span>
+              {delClient && <button
+                className="delete animate__animated animate__slideInLeft"
                 onClick={(event) => {
                   deleteClient(event.target.closest("td").dataset.id);
                   readClients().then((data) => {
@@ -68,10 +70,14 @@ const TableBody = (props) => {
             type="text"
             onChange={(event) => {
               setName(event.target.value);
-              setNewClient(true)
+              if(event.target.value === ""){
+                setNewClient(false)
+              } else{
+                setNewClient(true)
+              }
             }}
             value={name}
-            placeholder="Новый клиент"
+            placeholder="..."
 
           />
           {isNewClient && <button
@@ -83,6 +89,7 @@ const TableBody = (props) => {
               });
               setNewClient(false)
             }}
+            className="animate__animated animate__fadeInUp"
           >
             <i className="fas fa-check"></i>
           </button>

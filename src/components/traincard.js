@@ -32,60 +32,64 @@ const TrainCard = (props) => {
 
   return (
     <div className="card" style={checkPosition()} >
-      <button className="close" onClick={() => props.hide(false)}>
-        <i className="fas fa-times"></i>
-      </button>
-      <span>{props.data[6]} число</span>
-      <label htmlFor="timetrain">Время тренировки</label>
-      <input
-        type="time"
-        name="timetrain"
-        required
-        onChange={(event) => {
-          setTime(event.target.value);
-        }}
-        defaultValue={time}
-      />
-      <label htmlFor="type">Тип тренировки</label>
-      <select
-        name="type"
-        onChange={(event) => {
-          setType(event.target.value);
-        }}
-        value={type}
-      >
-        <option value="box">Бокс</option>
-        <option value="solo">Индивидуальная</option>
-        <option value="group">Групповая</option>
-      </select>
-      <button
-        className="add"
-        onClick={() => {
-          if(time === ""){
-            alert("Укажите данные")
-            return ;
-          }
-          writeTrain(props.data[5], props.data[6], time, type, props.data[2]);
-          props.hide(false);
-          readTrains(props.data[5]).then(data => {
-            props.loadTrains(data)
-          });
-        }}
-      >
-        Добавить
-      </button>
-      <button
-        className="remove"
-        onClick={() => {
-          deleteTrain(props.data[5], props.data[6], props.data[2]);
-          props.hide(false);
-          readTrains(props.data[5]).then(data => {
-            props.loadTrains(data)
-          });
-        }}
-      >
-        Очистить
-      </button>
+      <div className="info_container">
+        <button className="close" onClick={() => props.hide(false)}>
+          <i className="fas fa-times"></i>
+        </button>
+        <span>{props.data[6]} число</span>
+        <label htmlFor="timetrain">Время тренировки</label>
+        <input
+          type="time"
+          name="timetrain"
+          required
+          onChange={(event) => {
+            setTime(event.target.value);
+          }}
+          defaultValue={time}
+        />
+        <label htmlFor="type">Тип тренировки</label>
+        <select
+          name="type"
+          onChange={(event) => {
+            setType(event.target.value);
+          }}
+          value={type}
+        >
+          <option value="box">Бокс</option>
+          <option value="solo">Индивидуальная</option>
+          <option value="group">Групповая</option>
+        </select>
+      </div>
+      <div className="button_container">
+        <button
+          className="add"
+          onClick={() => {
+            if(time === ""){
+              alert("Укажите данные")
+              return ;
+            }
+            writeTrain(props.data[5], props.data[6], time, type, props.data[2]);
+            props.hide(false);
+            readTrains(props.data[5]).then(data => {
+              props.loadTrains(data)
+            });
+          }}
+        >
+          Добавить
+        </button>
+        <button
+          className="remove"
+          onClick={() => {
+            deleteTrain(props.data[5], props.data[6], props.data[2]);
+            props.hide(false);
+            readTrains(props.data[5]).then(data => {
+              props.loadTrains(data)
+            });
+          }}
+        >
+          Очистить
+        </button>
+      </div>
     </div>
   );
 };
