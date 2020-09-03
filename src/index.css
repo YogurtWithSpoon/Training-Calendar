@@ -17,6 +17,7 @@ input:focus, textarea:focus, select:focus, button:focus{
   flex-direction: column;
   align-items: center;
   padding-bottom: 40px;
+  min-width: 1100px;
 }
 
 /* header */
@@ -49,15 +50,15 @@ input:focus, textarea:focus, select:focus, button:focus{
 }
 
 .select_date{
-  margin-left:10px;
-  background:#c7c7c7;
-  border-radius:20px;
-  border:none;
+  margin-left: 10px;
+  border-radius: 20px;
+  border: none;
   height: 50%;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   padding: 5px;
-  color: rgb(255, 255, 255);
+  color: #676767;
+  box-shadow: 0 0px 5px rgb(0 0 0 / 18%);
 }
 
 .legend_container,.date_container{
@@ -74,6 +75,12 @@ input:focus, textarea:focus, select:focus, button:focus{
 .date_container > label{
   font-weight: 700;
   font-size: 20px;
+}
+
+.current{
+  background:#FF9800;
+  font-weight: 600;
+  color:#fff;
 }
 
 .box{
@@ -122,12 +129,7 @@ tr{
   height: 40px;
 }
 
-thead > tr > td{
-  /* background: #c7c7c7; */
-}
-
 thead > tr > td:first-child{
-  /* background: #c7c7c7; */
   width: 200px;
 }
 
@@ -144,7 +146,6 @@ tbody > tr > td:first-child{
 }
 
 tbody > tr > td:first-child{
-  /* background: #c7c7c7; */
   font-size: 1.3em;
   font-weight: 400;
   border-top:1px solid grey;
@@ -157,11 +158,11 @@ tbody > tr:last-child > td{
 
 td{
   width: 50px;
-  cursor: pointer;
 }
 
 .cell{
   color:white;
+  cursor: pointer;
 }
 
 .cell:hover{
@@ -259,7 +260,7 @@ td{
   flex-direction: column;
   justify-content: space-around;
   align-items: center; 
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   background:#fff;
@@ -269,6 +270,10 @@ td{
   color: #5c5d61;
   height: 300px;
   box-shadow: 0 0px 6px rgb(0 0 0 / 18%);
+}
+
+.card_info{
+  font-weight: 700;
 }
 
 .info_container > .close{

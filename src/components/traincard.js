@@ -36,7 +36,7 @@ const TrainCard = (props) => {
         <button className="close" onClick={() => props.hide(false)}>
           <i className="fas fa-times"></i>
         </button>
-        <span>{props.data[6]} число</span>
+        <span className="card_info">{props.data[11]}  {props.data[6]} число</span>
         <label htmlFor="timetrain">Время тренировки</label>
         <input
           type="time"

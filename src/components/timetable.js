@@ -5,7 +5,7 @@ import TrainCard from "./traincard";
 const TimeTable = (props) => {
   const [show, setShow] = useState(false);
   const [datacard, setData] = useState([]);
-
+  
   return (
     <React.Fragment>
       {show && (
@@ -30,6 +30,7 @@ const TimeTable = (props) => {
               let width = coords.width;
               let height = coords.height;
               let cssClass = target.classList.length === 1 ? "box" : target.classList[target.classList.length - 1];
+              let client = target.parentElement.cells[0].textContent;
               let data = [
                 target.textContent,
                 cssClass,
@@ -42,6 +43,7 @@ const TimeTable = (props) => {
                 isWidth,
                 width,
                 height,
+                client,
               ];
               setData(data);
             }
@@ -50,7 +52,7 @@ const TimeTable = (props) => {
             }
           }}
         >
-          <TableHeader range={props.range} loadclient={props.loadclient} />
+          <TableHeader range={props.range} date={props.date}  loadclient={props.loadclient} />
           <TableBody
             clients={props.clients}
             range={props.range}
