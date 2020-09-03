@@ -12,6 +12,7 @@
     "react-loading": "^2.0.3",
     "react-scripts": "3.4.3"
   },
+  "homepage": "http://f0302262.xsph.ru/calendar",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

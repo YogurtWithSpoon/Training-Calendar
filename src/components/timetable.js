@@ -5,7 +5,7 @@ import TrainCard from "./traincard";
 const TimeTable = (props) => {
   const [show, setShow] = useState(false);
   const [datacard, setData] = useState([]);
-  
+
   return (
     <React.Fragment>
       {show && (
@@ -23,15 +23,15 @@ const TimeTable = (props) => {
               setShow(true);
               let target = event.target.closest(".cell");
               let coords = target.getBoundingClientRect();
-              let isHeight = coords.bottom + 300 >= document.documentElement.clientHeight  ;
-              let isWidth = coords.right + 200 >= document.documentElement.clientWidth 
-              let right = coords.right;
-              let bottom = coords.bottom;
-              let width = coords.width;
-              let height = coords.height;
+              const isHeight = coords.bottom + 300 >= document.documentElement.clientHeight  ;
+              const isWidth = coords.right + 200 >= document.documentElement.clientWidth 
+              const right = coords.right;
+              const bottom = coords.bottom;
+              const width = coords.width;
+              const height = coords.height;
               let cssClass = target.classList.length === 1 ? "box" : target.classList[target.classList.length - 1];
-              let client = target.parentElement.cells[0].textContent;
-              let data = [
+              const client = target.parentElement.cells[0].textContent;
+              const data = [
                 target.textContent,
                 cssClass,
                 target.dataset.clientid,
