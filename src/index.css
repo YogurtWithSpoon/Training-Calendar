@@ -26,12 +26,13 @@ input:focus, textarea:focus, select:focus, button:focus{
   display:flex;
   align-items: center;
   justify-content: flex-start;
+  font-size: 1.2em;
 }
 
 .circle{
   margin-right:5px;
-  width:20px;
-  height:20px;
+  width:40px;
+  height:40px;
   border-radius: 100%;
 }
 
@@ -52,13 +53,26 @@ input:focus, textarea:focus, select:focus, button:focus{
 .select_date{
   margin-left: 10px;
   border-radius: 20px;
+  font-size:1.8em;
   border: none;
   height: 50%;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   padding: 5px;
   color: #676767;
-  box-shadow: 0 0px 5px rgb(0 0 0 / 18%);
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
 }
 
 .legend_container,.date_container{
@@ -260,9 +274,6 @@ td{
   flex-direction: column;
   justify-content: space-around;
   align-items: center; 
-  position: fixed;
-  top: 0px;
-  left: 0px;
   background:#fff;
   width: 200px;
   border-radius:5px;
