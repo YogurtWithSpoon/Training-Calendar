@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  margin: 0;
   font-family: 'Montserrat', sans-serif;
   background: #f4f8fe;
   color: #8e97b0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 input:focus, textarea:focus, select:focus, button:focus{
@@ -17,7 +22,6 @@ input:focus, textarea:focus, select:focus, button:focus{
   flex-direction: column;
   align-items: center;
   padding-bottom: 40px;
-  min-width: 1100px;
 }
 
 /* header */
@@ -44,10 +48,11 @@ input:focus, textarea:focus, select:focus, button:focus{
   align-items: center;
   background: #fff;
   margin-top: 2%;
-  width: 90%;
-  height: 90px;
+  height: 150px;
+  width: 100%;
   border-radius: 15px;
   box-shadow: 0 1.6px 3px rgb(0 0 0 / 9%);
+  padding: 1rem;
 }
 
 .select_date{
@@ -81,6 +86,10 @@ input[type="month"]::-webkit-calendar-picker-indicator {
   align-items: center;
   width:45%;
   height:80%;
+}
+.legend_container{
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .date_container{
@@ -122,8 +131,8 @@ input[type="month"]::-webkit-calendar-picker-indicator {
   background:#fff;
   margin-top:3%;
   padding: 3%;
+  width: 100%;
   border-radius: 20px;
-  width:84%;
   z-index: 0;
   box-shadow: 0 1.6px 3px rgb(0 0 0 / 9%);
 }
