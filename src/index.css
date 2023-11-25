@@ -109,6 +109,10 @@ input[type="month"]::-webkit-calendar-picker-indicator {
   background: #0acf83;
 }
 
+.split {
+  background: rgba(207, 187, 10, 0.671);
+}
+
 
 /* calendar */
 

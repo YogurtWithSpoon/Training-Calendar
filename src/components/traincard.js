@@ -32,6 +32,7 @@ const TrainCard = ({hide, data, loadTrains, closeCardHandler}) => {
           <option value="box">Бокс</option>
           <option value="solo">Индивидуальная</option>
           <option value="group">Групповая</option>
+          <option value="split">Сплит</option>
         </select>
       </div>
       <div className="button_container">

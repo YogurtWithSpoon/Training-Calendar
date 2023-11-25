@@ -25,6 +25,10 @@ const AppHeader = (props) => {
           <div className="circle group"></div>
           <div>групповая</div>
         </div>
+        <div className="legend">
+          <div className="circle split"></div>
+          <div>сплит</div>
+        </div>
       </div>
     </div>
   )
